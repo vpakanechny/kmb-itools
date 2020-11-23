@@ -1,0 +1,155 @@
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
+    width: 1200px;
+}
+
+.page {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+    align-content: stretch;
+    width: 100%;
+}
+
+.heading {  
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	align-items: stretch;
+    align-content: stretch;
+    margin-right: 50px;
+    width: 200px;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    justify-content: space-around; 
+    align-items: center;  
+    width: 120px;
+    height: 350px;
+    margin-top: 25px;
+} 
+
+.navbar-item {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+} 
+
+ul {
+    list-style: none;
+    margin-bottom: none ; 
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid black; */
+    justify-content: space-around;
+    align-items: flex-start; 
+    width: 120px;
+    height: 200px;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 350px;
+    box-sizing: border-box;
+}
+
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.main-content {
+    display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	align-items: flex-end;
+    align-content: stretch;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.email {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: stretch;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.content {
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: stretch;
+    align-content: stretch;
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 30px;
+}
+
+header {
+    border-style: solid;
+    border-color: black;
+}
+
+.logo {
+    background-color: gray;
+    border-radius: 50%;
+    border-color: black;
+    border-style: solid;
+    width: 120px;
+    height: 120px;
+}
+
+.card {
+    max-width: 25%;
+    width: 100%;
+    /* min-height: 100%; */
+    border: 2px solid black;
+}
+
+.IMG {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    width: 200px;
+}
+
+footer {
+    display: flex;
+    border-top: 2px solid black;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    margin-top: 20px;
+}
+
+
+ 
