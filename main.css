@@ -131,6 +131,7 @@ body, p {
     max-width: 25%;
     width: 100%;
     border: 2px solid black;
+    padding: 5px 20px 10px 20px;
 }
 
 .social {
@@ -141,13 +142,13 @@ body, p {
     width: 200px;
 }
 
-footer {
+.footer-main {
     display: flex;
     border-top: 2px solid black;
     justify-content: space-between;
     box-sizing: border-box;
-    align-items: center;
     margin-top: 20px;
+    padding-top: 10px;
 }
 
 .navbar-item-icon {
@@ -163,12 +164,4 @@ footer {
 
 .footer-left a {
     color: blue;
-}
-
-.card h1 {
-    margin: 20px;
-}
-
-.card p {
-    margin: 20px;
 }
