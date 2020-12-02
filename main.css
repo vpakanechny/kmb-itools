@@ -24,7 +24,6 @@ body, p, ul {
 .sidebar {  
 	display: flex;
 	flex-direction: column;
-	/* flex-wrap: wrap; */
 	justify-content: flex-start;
     max-width: 100%;
     padding-right: 50px;
@@ -36,7 +35,6 @@ body, p, ul {
     justify-content: space-around; 
     align-items: center;  
     width: 100%;
-    /* height: 350px; */
     border: 2px solid black;
     margin-top: 25px;
     box-sizing: border-box;
@@ -63,7 +61,6 @@ body, p, ul {
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-start; 
-    /* width: 120px; */
     height: 200px;
     padding: 30px 0px 70px 0px;
 }
@@ -96,7 +93,8 @@ body, p, ul {
 }
 
 .subscribe-form-lable {
-margin-right: 5px;
+    display: flex;
+    margin-right: 5px;
 }
 
 .content {
@@ -125,15 +123,8 @@ margin-right: 5px;
     width: 100%;
     padding: 5px 20px 10px 20px;
     border: 2px solid black;
+    box-sizing: border-box;
 }
-
-/* .social {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 200px;   
-    height: 60px;
-} */
 
 .footer-main {
     display: flex;
@@ -159,7 +150,7 @@ margin-right: 5px;
     color: blue;
 }
 
-@media (max-width: 991px) {
+@media screen and (max-width: 991px) {
     .page-content {
         display: flex;
         flex-direction: column;
@@ -170,6 +161,7 @@ margin-right: 5px;
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+        padding-right: 0;
     }
 
     .sidebar nav {
@@ -185,21 +177,94 @@ margin-right: 5px;
         width: 100%;
     } 
 }
+@media screen and (max-width: 768px) {
+     .navbar-item {
+        
+        border-right: 2px solid black;
+        padding: 0 5px;
+        font-size: 1.5em;
+     }
 
-@media (max-width: 767px) {
-        .navbar-item a {
-        background-color: red;
-        color: none;
+    .navbar-item:last-child {
+        border: none;
+    }
+
+    .navbar-item a {
+        color: blue;
         text-decoration: underline;
     }
 
     .navbar ul {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: baseline;
-    width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: baseline;
+        width: 100%;
+        padding-left: 10%;
     }
-}
+
+    .navbar-item-icon {
+        display: none;
+    }
+
+    .subscribe-container {
+        font-size: 6vw
+    }
+
+    .subscribe-form-lable {
+        white-space: nowrap;
+    }
+
+    .content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items:  stretch;
+    }
+
+    .card {
+        max-width: 45%;
+        margin-top: 20px;
+        
+    }
+}    
+
+@media screen and (max-width: 575px) {
+    .sidebar {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar ul {
+        align-items: center;
+        justify-content: center; 
+    }
+
+    .subscribe-form-lable {
+         flex-wrap: wrap;
+    }
+
+    .subscribe-form-lable input {
+        width: 70%;
+    }
+
+    .subscribe-form-lable button {
+        width: 29%;
+    }
+    
+    .card {
+        min-width: 100%;
+        padding: 5px 5px 10px 5px;
+    }
+
+    .footer-main {
+        flex-direction: column;
+    }
+    
+    .footer-right a {
+        float: right;
+    }
+}   
 
 
-ё
+
+
