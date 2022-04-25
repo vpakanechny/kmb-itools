@@ -1,15 +1,15 @@
 const calendar = (function () {
   let Storage = [];
-  let now = new Date(0);
 
   function generateId() {
     return Math.random().toString(16).slice(2);
   }
 
   function addEvent(id, name, time, callback) {
+    const timer = time - new Date();
     const timeoutId = setTimeout(function () {
       callback();
-    }, time - now);
+    }, timer);
     const event = { id: id || generateId(), name, time, callback, timeoutId };
     Storage.push(event);
   }
@@ -25,7 +25,7 @@ const calendar = (function () {
         clearTimeout(element.timeoutId);
         const timeoutId = setTimeout(function () {
           element.callback();
-        }, updatedTime - now);
+        }, updatedTime - new Date());
         const updatedEvent = {
           id: element.id,
           name: event.name || element.name,
@@ -49,15 +49,17 @@ const calendar = (function () {
   }
 
   function getEventsByDay(fromDate, toDate) {
+    console.log(fromDate.length);
     const fromDateInMS = Date.parse(fromDate);
+    const dayInMS = 24*60*60*1000;
     let toDateInMS = Date.parse(toDate);
     if (toDate === undefined) {
       if (fromDate.length <= 7) {
-        toDateInMS = fromDateInMS + 30 * 24 * 3600 * 1000;
-      } else if (fromDate.length <= 9) {
-        toDateInMS = fromDateInMS + 24 * 3600 * 1000;
+        toDateInMS = fromDateInMS + (30 * dayInMS);
+      } else if (fromDate.length <= 12) {
+        toDateInMS = fromDateInMS + dayInMS;
       } else {
-        toDateInMS = fromDateInMS + 7 * 24 * 3600 * 1000;
+        toDateInMS = fromDateInMS + (7 * dayInMS);
       }
     }
     const foundEventsByPeriod = Storage.filter((element) => {
@@ -92,57 +94,56 @@ const calendar = (function () {
   };
 })();
 
-calendar.addEvent(123, "event Name", new Date(2022, 5, 5), () => {
+calendar.addEvent(123, "event Name", new Date(2022, 3, 10), () => {
   console.log("event 1 callback");
 });
 
-calendar.addEvent(124, "event Name2", new Date(2022, 7, 7), () => {
+calendar.addEvent(124, "event Name2", new Date(2022, 3, 20), () => {
   console.log("event 2 callback");
 });
 
-calendar.addEvent(125, "event Name3", new Date(2022, 6, 7), () => {
+calendar.addEvent(125, "event Name3", new Date(2022, 3, 26), () => {
   console.log("event 3 callback");
 });
 
-calendar.addEvent(126, "event Name4", new Date(2022, 6, 11), () => {
+calendar.addEvent(126, "event Name4", new Date(2022, 3, 27), () => {
   console.log("event 4 callback");
 });
 
-calendar.addEvent(127, "event Name5", new Date(2022, 7, 7), () => {
+calendar.addEvent(127, "event Name5", new Date(2022, 3, 30), () => {
   console.log("event 5 callback");
 });
 
-calendar.addEvent(128, "event Name6", new Date(2022, 6, 12), () => {
+calendar.addEvent(128, "event Name6", new Date(2022, 4, 1), () => {
   console.log("event 6 callback");
 });
 
-calendar.addEvent(129, "event Name7", new Date(2022, 6, 13), () => {
+calendar.addEvent(129, "event Name7", new Date(2022, 4, 5), () => {
   console.log("event 7 callback");
 });
 
-calendar.addEvent(130, "event Name8", new Date(2022, 6, 14), () => {
+calendar.addEvent(130, "event Name8", new Date(2022, 4, 8), () => {
   console.log("event 8 callback");
 });
 
-calendar.addEvent(131, "event Name9", new Date(2022, 6, 15), () => {
+calendar.addEvent(131, "event Name9", new Date(2022, 4, 10), () => {
   console.log("event 9 callback");
 });
 
-calendar.addEvent(132, "event Name10", new Date(2022, 6, 16), () => {
+calendar.addEvent(132, "event Name10", new Date("Mon Apr 25 2022 16:32:44 GMT+0300 (Москва, стандартное время"), () => {
   console.log("event 10 callback");
 });
 
-const res = calendar.getEvents();
-console.log(res);
+// const res = calendar.getEvents();
+// console.log(res);
 
-calendar.editEvent(124, { name: "Event 2" });
+// calendar.editEvent(124, { name: "Event 2" });
 // calendar.editEvent(125, {
 //   name: "Event 228",
-//   time: new Date(13000),
+//   time: new Date(2022, 7, 15),
 // });
 
-calendar.getEvent(123);
-
+// calendar.getEvent(123);
 
 // function factorial(n) {
 //   console.log(n);
